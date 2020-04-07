@@ -1,11 +1,12 @@
 #!/usr/bin/python
 
-import os
-import time
-import sys
+#commented out the unused modules
+#import os
+#import time
+#import sys
 import RPi.GPIO as GPIO
 
-
+# used to set state of GPIO pins that control relays. Ran at startup.
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
