@@ -4,7 +4,7 @@ import os
 import time
 import sys
 import json
-
+#used to test web connection to script
 try:
     data = json.loads(sys.argv[1])
 except:
@@ -16,10 +16,14 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 
+#this needs lots of recoding to clean up
+
+
+#identification numbers of connected thermocuple(temperature probes)
 device=["28-021502d4ddff","28-02150397b5ff"]
 length=len(device)
 temperatureH2O = [0,1]
-
+#read temperatures of the thermocouple 
 def readtemp():
     c = 0
     while c<length:
@@ -36,7 +40,7 @@ def readtemp():
         else:
             temperatureH2O[c]=error
             c += 1
-
+#run thermocouple function 
 readtemp()
 
 
@@ -44,10 +48,11 @@ sensor = Adafruit_DHT.AM2302
 pin = 5
 pin2 = 6
 
-
+#set variables to current temperature and humidity
 humidity, ctemperature = Adafruit_DHT.read_retry(sensor, pin)
 humidity2, ctemperature2 = Adafruit_DHT.read_retry(sensor, pin2)
 
+#convert temperature c to f and round to 2 decimal places
 ltemperature=ctemperature*1.8+32
 temperature = round(ltemperature, 2)
 
@@ -58,6 +63,7 @@ temperature2 = round(ltemperature2, 2)
 
 humidity2 = round(humidity2, 2)
 
+#set readings list to current environmental conditions
 reading=[0,1,2,3,4,5]
 
 
@@ -84,4 +90,5 @@ else:
 reading[4] = temperatureH2O[0]
 reading[5] = temperatureH2O[1]
 
+#send set of reeadings to webpage
 print json.dumps(reading)
