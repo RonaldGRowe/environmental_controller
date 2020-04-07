@@ -1,11 +1,14 @@
 #!/usr/bin/python
 
-import os
-import time
+
+# commented out unused modules
+#import os
+#import time
 import sys
 import RPi.GPIO as GPIO
 import json
 
+#test script to check web connection
 
 try:
     data = json.loads(sys.argv[1])
