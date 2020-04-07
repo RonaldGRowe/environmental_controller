@@ -1,11 +1,12 @@
-
 #!/usr/bin/python
-import Adafruit_DHT
+
+#comment out unused modules
+#import Adafruit_DHT
 import MySQLdb
 import base64
 import os
-import time
-import sys
+#import time
+#import sys
 from i2csensorcode import atlas_i2c
 from string import letters
 import pigpio
@@ -17,7 +18,7 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 
-password = base64.b64decode("cm9uam9uam8=")
+password = base64.b64decode("")
 
 db = MySQLdb.connect("localhost","sensorData",password,"sensor_data")
 
@@ -125,6 +126,7 @@ reading[5] = temperatureH2O[1]
 reading[6] = round(ph3, 2)
 cursor=db.cursor()
 
+#commit readings to sql database
 write = "INSERT INTO TempData(Temp, Humidity, Temp2, Humidity2, h2oTemp1, h2oTemp2, ph) VALUES (%s,%s,%s,%s,%s,%s,%s)"
 args = reading
 cursor.execute(write, args)
