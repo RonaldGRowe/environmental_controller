@@ -1,20 +1,10 @@
 #!/usr/bin/python
 
 
-# commented out unused modules
-#import os
-#import time
+import os
+import time
 import sys
 import RPi.GPIO as GPIO
-import json
-
-#test script to check web connection
-
-try:
-    data = json.loads(sys.argv[1])
-except:
-    print "ERROR"
-    sys.exit(1)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -26,5 +16,3 @@ status = GPIO.input(18)
 if status == 1:
 	GPIO.output(18,GPIO.LOW)#turn on fan
 else: GPIO.output(18,GPIO.HIGH)
-result="done"
-print json.dumps(result)

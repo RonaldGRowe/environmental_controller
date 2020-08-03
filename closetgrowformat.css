@@ -1,0 +1,97 @@
+<!--
+      Closet Readings 
+      Hosted by Rasp Pi
+
+
+      Hydroponic Info
+      Author: Ronald Rowe
+      Date:   5/31/2015
+
+      Filename:         closetgrow.html
+      
+   -->
+
+
+<!--	background-image: url('water.jpg');
+	background-repeat:no-repeat;
+        background-size:cover;
+	width: 100%;
+   -->
+
+*{
+	background: transparent;
+	background-color: blue;
+}
+body{
+	background-color: blue;
+}
+header{
+	margin-bottom: -100px;
+	color: red;
+	font-size: 25px;
+	font-variant: small-caps;
+}
+h1{
+	text-align:center;
+}
+aside{
+	margin-top: 1%;
+	text-align: center;
+	float: right;
+	width: 33%;
+	color: white;
+	font-size: 25px;
+	font-variant: small-caps;
+}
+section{
+        margin-top: 1%;
+        text-align: center;
+        width: 33%;
+        float: left;
+        color: white;
+        font-size: 25px;
+        font-variant: small-caps;
+}
+section div.ph{
+	float: right;
+	margin-right: 25%;
+}
+section div.tds{
+	margin-left: 25%;
+
+}
+aside div.ph{
+	float: right;
+	margin-right: 25%;
+}
+div.tds{
+	margin-left: 25%;
+}
+button,input
+{
+    display: block;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    margin: 20px auto;
+    color: #ccc;
+    background-color: #555;
+    background: -webkit-linear-gradient(#888, #555);
+    background: linear-gradient(#888, #555);
+    border: 0 none;
+    border-radius: 3px;
+    text-shadow: 0 -1px 0 #000;
+    box-shadow: 0 1px 0 #666, 0 5px 0 #444, 0 6px 6px rgba(0,0,0,0.6);
+    cursor: pointer;
+   }
+
+div.fan{
+        width: 25%;
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        font-variant: small-caps;
+        margin-left: auto;
+	margin-right: auto;
+	margin-top:5%;}
