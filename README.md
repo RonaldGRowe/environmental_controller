@@ -1,5 +1,8 @@
 Environmental Controller
 ========================
+
+![Website based Interface](https://github.com/RonaldGRowe/environmental_controller/blob/master/Images/envirocontroller.png)
+
 Collection of programs to utilize a Raspberry Pi to control and monitor an agricultural environment.
 
 Using Python to access temperature and humidity sensor data. The data is stored in a MySQL database.
