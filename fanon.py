@@ -1,15 +1,12 @@
 #!/usr/bin/python
 
-
-import os
-import time
-import sys
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 
+#Status of 1 equals off and thus program turns on fan if 0 then its on and will be turned off.
 GPIO.setup(18,GPIO.OUT)
 status = GPIO.input(18)
 

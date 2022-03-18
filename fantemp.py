@@ -1,59 +1,44 @@
 #!/usr/bin/python
 
-
-# commented out unused modules
-#import os
 import time
-#import sys
 import RPi.GPIO as GPIO
-import pigpio
-import DHT22
+from pigpio_dht import DHT22
 
 
-#using dht22 sensor to create variable with current temperature and humidity
-humidity = [0,1]
-ctemperature = [0,1]
+#using dht22 sensor to fill variables with current temperature and humidity
+humidity = []
+temperature = []
 
-pi = pigpio.pi()
-r = 0
-pin = [5,6]
-while r < 2:
-   s = DHT22.sensor(pi, pin[r])
-   s.trigger()
-   time.sleep(0.2)
-   humidity[r] = (s.humidity())
-   ctemperature[r] = (s.temperature())
-   r += 1
-   s.cancel()
-pi.stop()
 
-ltemperature=ctemperature[0]*1.8+32
-temp = round(ltemperature, 2)
+def get_condition():
+    gpiopin = [6]
+    x = 0
+    while x < len(gpiopin):
+        sensor = DHT22(gpiopin[x])
+        humidity.append(sensor['humidity'])
+        temperature.append(sensor['temp_f'])
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
 
-pin = [18]
-length = len(pin)
-x = 0
-result = [0]
+
+fanpin = [18]
 
 #create variable with minutes of the current time
 minute = int(time.strftime('%M'))
 #run fan if time is earlier then 10 minutes after the hour or if temperature is more that or equal to 77 degrees
-if ((minute < 10) or (temp >= 77)):
+if ((minute < 10) or (temperature >= 77)):
     while x < length:
         GPIO.setup(pin[x],GPIO.OUT)
         result[x] = GPIO.input(pin[x])
         if result[x] == 1:
             GPIO.output(pin[x],GPIO.LOW)#turns fan on
         x += 1
-#else make sure fan is off
 else:
-    while x < length:
-        GPIO.setup(pin[x],GPIO.OUT)
-        result[x] = GPIO.input(pin[x])
-        if result[x] == 0:
-            GPIO.output(pin[x],GPIO.HIGH)#turns fan off
+    if result[x] == 0:
+        GPIO.output(fanpin[x],GPIO.HIGH)#turns fan off
         x += 1
 
+
+get_condition()
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)

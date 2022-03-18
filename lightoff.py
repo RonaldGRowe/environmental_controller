@@ -1,30 +1,26 @@
 #!/usr/bin/python
 
-# commented out unused module
-#import os
 import time
-import sys
 import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-pin = [23]
-length = len(pin)
-x = 0
-result = [0]
-#create variable with the hour of the current time
+lightpins = [20,23]
+#military (24hrs) time required
 hour1 = int(time.strftime('%H'))
-#determine whether the current hour is with in the paramters to turn on
-if ((hour1 <= 10) or (hour1 >= 17)):
-    GPIO.setup(pin[x],GPIO.OUT)
-    result[x] = GPIO.input(pin[x])
-    if result[x] == 1:
-        GPIO.output(pin[x],GPIO.LOW)   #turn on
-#else make sure its off
-else:
-    GPIO.setup(pin[x],GPIO.OUT)
-    result[x] = GPIO.input(pin[x])
-    if result[x] == 0:
-        GPIO.output(pin[x],GPIO.HIGH)#turn off
+offhour = 10
+onhour = 17
+#check time to turn lights on(0) or off(1) 
+for pin in lightpins:
+    if ((hour1 <= offhour) or (hour1 >= onhour)):
+        GPIO.setup(pin,GPIO.OUT)
+        status = GPIO.input(pin)
+        if status:
+            GPIO.output(pin[x],GPIO.LOW)   #turn on
+    else:
+        GPIO.setup(pin,GPIO.OUT)
+        status = GPIO.input(pin)
+        if not status:
+            GPIO.output(pin[x],GPIO.HIGH)#turn off
         
