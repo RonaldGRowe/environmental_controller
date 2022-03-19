@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 #comment out unused modules
 #import Adafruit_DHT

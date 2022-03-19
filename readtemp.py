@@ -1,14 +1,18 @@
-#!/usr/bin/python
-import Adafruit_DHT
+#!/usr/bin/env python3
+
+from pigpio_dht import DHT22
 import os
 import time
 import sys
 import json
+
+
+
 #used to test web connection to script
 try:
     data = json.loads(sys.argv[1])
 except:
-    print "ERROR"
+    print("ERROR")
     sys.exit(1)
 	
 
@@ -23,6 +27,7 @@ os.system('modprobe w1-therm')
 device=["28-021502d4ddff","28-02150397b5ff"]
 length=len(device)
 temperatureH2O = [0,1]
+
 #read temperatures of the thermocouple 
 def readtemp():
     c = 0

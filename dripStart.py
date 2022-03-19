@@ -1,14 +1,14 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import RPi.GPIO as GPIO
 
-# used to set state of GPIO pins that control relays. Ran at startup to make sure drippers are turned off.
+# used to set state of GPIO pins that control dripper relays. Ran at startup to make sure drippers are turned off.
+dripperpins = [19,24]
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(24,GPIO.OUT)
-GPIO.output(24,GPIO.HIGH)
+for pin in dripperpins:
+    GPIO.setup(pin,GPIO.OUT)
+    GPIO.output(pin,GPIO.HIGH)
 
-GPIO.setup(19,GPIO.OUT)
-GPIO.output(19,GPIO.HIGH)
