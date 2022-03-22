@@ -7,13 +7,14 @@ from time import sleep
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-pin = [19]
-length = len(pin)
+drippins = [19]
 x = 0
 result = [0]
 
 hour = time.strftime('%H')
 minute = time.strftime('%M')
+
+
 if hour == 18 and minute < 16:
     while x < length:
         GPIO.setup(pin[x],GPIO.OUT)

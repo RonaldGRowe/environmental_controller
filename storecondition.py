@@ -3,7 +3,6 @@
 from environmentconditions import get_environment
 import mariadb
 from pigpio_dht import DHT22
-import time
 import datetime
 
 conn = mariadb.connect(
@@ -12,9 +11,10 @@ conn = mariadb.connect(
     host = 'localhost',
     database = 'temperaturehumidityreadings')
 
-cur = conn.cursor()
 
-def store_envrionment():
+
+def store_envrionment(conn):
+    cur = conn.cursor()
     tempf, humidity = get_environment()
     for i, temp in enumerate(tempf):
         now = datetime.datetime.now()
@@ -24,4 +24,4 @@ def store_envrionment():
     conn.close()
 
 
-store_environment()
+store_environment(conn)
