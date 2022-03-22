@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os
 import time
@@ -16,11 +16,11 @@ except:
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(24,GPIO.OUT)
-status = GPIO.input(24)
+GPIO.setup(19,GPIO.OUT)
+status = GPIO.input(19)
 
 if status == 1:
-        GPIO.output(24,GPIO.LOW)#turn on fan
-else: GPIO.output(24,GPIO.HIGH)
+        GPIO.output(19,GPIO.LOW)#turn on drip
+else: GPIO.output(19,GPIO.HIGH)
 result="done"
 print json.dumps(result)
