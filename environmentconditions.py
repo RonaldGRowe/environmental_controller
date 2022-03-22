@@ -19,7 +19,7 @@ def get_environment():
 
     return temperature, humidity
     
-
+#takes average of multiple readings for accuracy
 def sample_sensor(pin):
     temps = []
     humiditys = []
