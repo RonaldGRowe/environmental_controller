@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-import os
-import time
 import sys
 import RPi.GPIO as GPIO
 import json
@@ -9,18 +7,21 @@ import json
 try:
     data = json.loads(sys.argv[1])
 except:
-    print "ERROR"
+    print("ERROR")
     sys.exit(1)
-
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-GPIO.setup(19,GPIO.OUT)
-status = GPIO.input(19)
+drippins = [19]
 
-if status == 1:
-        GPIO.output(19,GPIO.LOW)#turn on drip
-else: GPIO.output(19,GPIO.HIGH)
+for pin in drippins:
+    GPIO.setup(pin,GPIO.OUT)
+    status = GPIO.input(pin)
+    if status:
+            GPIO.output(pin,GPIO.LOW)#turn on drip
+    else: GPIO.output(pin,GPIO.HIGH)
+
 result="done"
-print json.dumps(result)
+
+json.dumps(result)

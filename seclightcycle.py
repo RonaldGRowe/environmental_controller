@@ -3,14 +3,14 @@
 import time
 import RPi.GPIO as GPIO
 
-def light_cycle():
+def light_cycle_two():
     lightpins = [20,23]
 
     #military (24hrs) time required
     hournow = int(time.strftime('%H'))
+    onhour = 6
     offhour = 20
-    onhour = 8
-
+    
     #check time to turn lights on(0) or off(1) 
     for pin in lightpins:
         GPIO.setmode(GPIO.BCM)
@@ -23,5 +23,5 @@ def light_cycle():
         else:
             if not status:
                 GPIO.output(pin,GPIO.HIGH)#turn off
-
-light_cycle()
+        
+light_cycle_two()

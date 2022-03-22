@@ -17,9 +17,11 @@ cur = conn.cursor()
 def store_envrionment():
     tempf, humidity = get_environment()
     for i, temp in enumerate(tempf):
+        now = datetime.datetime.now()
         statement = "INSERT INTO readings (dtg, temperature, humidity) VALUES (?, ?, ?)"
         cur.execute(statement, (now, temp, humidity[i],))
     conn.commit()
     conn.close()
 
-    store_environment()
+
+store_environment()

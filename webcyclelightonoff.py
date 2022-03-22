@@ -10,7 +10,6 @@ except:
     print("ERROR")
     sys.exit(1)
 
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
