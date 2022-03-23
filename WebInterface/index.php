@@ -32,7 +32,7 @@ $resultData = json_decode($relaystatus, true);
       Filename:         index.php
       
    -->
-	  <link href="closetgrowformat.css" rel="stylesheet" type="text/css" />
+	  <link href="controllerstyle.css" rel="stylesheet" type="text/css" />
       <meta charset="UTF-8" />
       <title>Raspberry Pi Controller</title>
       

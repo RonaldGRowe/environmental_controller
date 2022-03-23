@@ -10,7 +10,7 @@
 <?php
   $dberror="Failure";
 
-  $db=mysql_connect("localhost","websiteData","ronjonjo") or die ($dberror);
+  $db=mysql_connect("localhost","websiteData","password") or die ($dberror);
   mysql_select_db('sensor_data',$db)or die($dberror);
   $result=mysql_query("SELECT * FROM TempData ORDER BY dtg DESC LIMIT 100");
 
@@ -183,7 +183,7 @@ var options1 = {
          1:{color: 'black'},
          2:{color: 'green'}
         },
-	title: 'Left Room',
+	title: 'Left Side',
 	titleLocation: 'in',
         height: 400,
         colors: ['#a52714', '#097138']
@@ -328,7 +328,7 @@ var options = {
          1:{color: 'purple'},
          2:{color: 'yellow'}
         },
-	title: 'Right Room',
+	title: 'Right Side',
         height: 400,
         colors: ['#a52714', '#097138'],
       };
