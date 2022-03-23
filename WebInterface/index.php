@@ -13,7 +13,7 @@ $result = shell_exec('python "/website/mysite/sensors/tempread.py" ' . escapeshe
 $reading = json_decode($result, true);
 
 
-$relaystatus = shell_exec('python "/website/mysite/sensors/relaystatus.py" ' . escapeshellarg(json_encode($data)));
+$relaystatus = shell_exec('python "/website/mysite/sensors/webrelaystatus.py" ' . escapeshellarg(json_encode($data)));
 $resultData = json_decode($relaystatus, true);
 ?>
 -->

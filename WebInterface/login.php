@@ -4,7 +4,7 @@ if(isset($_POST['username'])){
   $dberror="Failure";
 
 
-  $db=mysql_connect("localhost","websiteData","ronjonjo") or die ($dberror);
+  $db=mysql_connect("localhost","websiteData","password") or die ($dberror);
   mysql_select_db("sensor_data",$db)or die($dberror);
 
   $username = trim($_POST['username']);
