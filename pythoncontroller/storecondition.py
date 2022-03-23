@@ -6,8 +6,8 @@ from pigpio_dht import DHT22
 import datetime
 
 conn = mariadb.connect(
-    user = 'ronaldgrowe',
-    password = 'ronjonjoe',
+    user = 'user',
+    password = 'password',
     host = 'localhost',
     database = 'temperaturehumidityreadings')
 

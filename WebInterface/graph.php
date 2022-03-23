@@ -10,25 +10,28 @@
 <?php
   $dberror="Failure";
 
-  $db=mysql_connect("localhost","websiteData","password") or die ($dberror);
-  mysql_select_db('sensor_data',$db)or die($dberror);
-  $result=mysql_query("SELECT * FROM TempData ORDER BY dtg DESC LIMIT 100");
+  $db=mysql_connect("localhost","user","password") or die ($dberror);
+  mysql_select_db('temperaturehumidityreadings',$db)or die($dberror);
+  $result=mysql_query("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100");
 
 
   while($row = mysql_fetch_assoc($result)){
-  $Dtemp[] = $row['temp'];
-  $Dtemp2[] = $row['temp2'];
+  $Dtemp[] = $row['temperature'];
+  /*$Dtemp2[] = $row['temp2'];*/
   $Dhumidity[] = $row['humidity'];
-  $Dhumidity2[] = $row['humidity2'];
+  /*$Dhumidity2[] = $row['humidity2'];
   $Dh2oTemp1[] = $row['h2oTemp1'];
-  $Dh2oTemp2[] = $row['h2oTemp2'];
+  $Dh2oTemp2[] = $row['h2oTemp2'];*/
   $datel[] = $row['dtg'];
   $date = date_parse($row['dtg']);
-  $hrs = "hrs";
+  $colon = ":";
   $slsh = "/";
-  $dated = $date['hour'] . $hrs . $date['month'] . $slsh . $date['day'];
+  $dated = $date['hour'] . $colon . $date['minute'] . $date['month'] . $slsh . $date['day'];
   $Ddtg[] = $dated;
 }
+  mysql_free_result($result);
+  mysql_close($db);
+
   for ($x = 0; $x < 100; $x++){
   $y = 99-$x;
   $humidity[$y] = $Dhumidity[$x];
