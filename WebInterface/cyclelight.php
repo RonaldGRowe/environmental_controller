@@ -8,7 +8,7 @@ exit();
 <?php
 
 $data = array("your in");
-$result = shell_exec('python "/website/mysite/sensors/lighton.py" ' . escapeshellarg(json_encode($data)));
+$result = shell_exec('python "/website/mysite/sensors/webcyclelightonoff.py" ' . escapeshellarg(json_encode($data)));
 $resultData = json_decode($result, true);
 
 if($resultData == "done"){
