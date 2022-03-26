@@ -1,0 +1,15 @@
+List of needed programs and modules
+
+python modules:
+
+pigpio
+pigpio_dht
+mysql connector
+RPi
+
+programs:
+
+python3
+apache server
+php
+mariaDB
