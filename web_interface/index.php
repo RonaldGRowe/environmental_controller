@@ -10,11 +10,11 @@
 <?php
 
 $data = array("your in");
-$result = shell_exec('python "/website/mysite/sensors/tempread.py" ' . escapeshellarg(json_encode($data)));
+$result = shell_exec('python "/website/mysite/sensors/web_live_condition.py" ' . escapeshellarg(json_encode($data)));
 $reading = json_decode($result, true);
 
 
-$relaystatus = shell_exec('python "/website/mysite/sensors/webrelaystatus.py" ' . escapeshellarg(json_encode($data)));
+$relaystatus = shell_exec('python "/website/mysite/sensors/web_relay_status.py" ' . escapeshellarg(json_encode($data)));
 $resultData = json_decode($relaystatus, true);
 ?>
 

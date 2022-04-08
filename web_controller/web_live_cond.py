@@ -20,7 +20,7 @@ except:
 watertemp = readwatertemp()
 temp, humidity = get_environment()
 
-reading=[]
+readings={}
 
 
 #send set of readings to webpage
