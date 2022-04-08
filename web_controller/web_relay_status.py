@@ -14,17 +14,17 @@ except:
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-relaypins = [18,20,23,24,19]
-relaystatus = []
+relaypins = {"fan":18, "light":20, "seclight":23, "drip":24, "secdrip":19}
+relaystatus = {}
 
 #check status of relays 0=ON 1=OFF
-for pin in relaypins:
+for k, pin in enumerate(relaypins):
 	GPIO.setup(pin,GPIO.OUT)
 	status = GPIO.input(pin)
 	if not status:
-		relaystatus.append("ON")
+		relaystatus[k] = "ON"
 	else:
-		relaystatus.append("OFF")
+		relaystatus[k] = "OFF"
 
 #sends relaystatus to webpage
 json.dumps(relaystatus)
