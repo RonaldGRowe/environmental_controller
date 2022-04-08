@@ -12,7 +12,7 @@ exit();
 
 $data = array("your in");
 
-$result = shell_exec('python3 "/website/mysite/sensors/webcyclefanon.py" ' . escapeshellarg(json_encode($data)));
+$result = shell_exec('python3 "/website/mysite/sensors/web_cycle_fan.py" ' . escapeshellarg(json_encode($data)));
 
 $resultData = json_decode($result, true);
 

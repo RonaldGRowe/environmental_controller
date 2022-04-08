@@ -2,7 +2,7 @@
 
 import time
 import RPi.GPIO as GPIO
-from environmentconditions import get_environment
+from get_environ import get_environment
 
 def run_fan():
 

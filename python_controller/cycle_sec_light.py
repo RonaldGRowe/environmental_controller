@@ -4,7 +4,7 @@ import time
 import RPi.GPIO as GPIO
 
 def light_cycle_two():
-    lightpins = [20,23]
+    lightpins = [23]
 
     #military (24hrs) time required
     hournow = int(time.strftime('%H'))

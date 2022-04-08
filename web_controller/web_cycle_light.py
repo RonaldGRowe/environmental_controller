@@ -13,7 +13,7 @@ except:
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-lightpins = [23]
+lightpins = [20]
 
 for pin in lightpins:
     GPIO.setup(pin,GPIO.OUT)

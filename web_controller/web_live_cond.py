@@ -3,8 +3,8 @@
 import sys
 import json
 
-from envirocondition import get_environment
-from watertemp import readwatertemp
+from get_environ import get_environment
+from get_water_temp import readwatertemp
 
 #used to test web connection to script
 try:
