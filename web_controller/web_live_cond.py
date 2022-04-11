@@ -12,11 +12,9 @@ try:
 except:
     print("ERROR")
     sys.exit(1)
-	
 
 
-
-#read temperatures of the thermocouple 
+#read temperatures of the thermocouple
 watertemp = readwatertemp()
 temp, humidity = get_environment()
 

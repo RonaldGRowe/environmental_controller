@@ -18,13 +18,13 @@ relaypins = {"fan":18, "light":20, "seclight":23, "drip":24, "secdrip":19}
 relaystatus = {}
 
 #check status of relays 0=ON 1=OFF
-for k, pin in enumerate(relaypins):
+for k, pin in relaypins.items():
 	GPIO.setup(pin,GPIO.OUT)
 	status = GPIO.input(pin)
 	if not status:
-		relaystatus[k] = "ON"
+		relaystatus.setdefault(k,"ON")
 	else:
-		relaystatus[k] = "OFF"
+		relaystatus.setdefault(k, "OFF")
 
 #sends relaystatus to webpage
 json.dumps(relaystatus)
