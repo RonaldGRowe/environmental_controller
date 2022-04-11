@@ -13,17 +13,18 @@ nowhour = time.strftime('%H')
 nowmin = time.strftime('%M')
 
 #Use military time 24hrs
-driponhours = []
+driponhours = [8,14]
 
 #Use seconds only, no minutes or hours
-driponsecs = 60
+driponsecs = 10
 
-if nowhour in driponhours:
+if int(nowhour) in driponhours:
     for pin in drippins:
         GPIO.setup(pin,GPIO.OUT)
         status = GPIO.input(pin)
         if status:
-                    GPIO.output(pin,GPIO.LOW)#turn drip on
+            GPIO.output(pin,GPIO.LOW)#turn drip on
     sleep(driponsecs)
-    GPIO.output(pin,GPIO.HIGH)#turn drip off
+    for pin in drippins:
+        GPIO.output(pin,GPIO.HIGH)#turn drip off
 

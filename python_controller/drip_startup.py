@@ -9,6 +9,5 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 for pin in dripperpins:
-    GPIO.setup(pin,GPIO.OUT)
-    GPIO.output(pin,GPIO.HIGH)
+    GPIO.setup(pin,GPIO.OUT, initial=1)
 

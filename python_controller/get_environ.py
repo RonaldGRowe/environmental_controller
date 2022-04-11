@@ -13,12 +13,12 @@ def get_environment():
     tempsensorpins = [6]
 
     for pin in tempsensorpins:
-        tempf, humidity = sample_sensor(pin)
+        tempf, humid = sample_sensor(pin)
         temperature.append(tempf)
-        humidity.append(humidity)
+        humidity.append(humid)
 
     return temperature, humidity
-    
+
 #takes average of multiple readings for accuracy
 def sample_sensor(pin):
     temps = []
