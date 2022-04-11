@@ -6,10 +6,23 @@ pigpio
 pigpio_dht
 mysql connector
 RPi
+decouple
 
-programs:
+software:
 
 python3
 apache server
 php
 mariaDB
+
+hardware:
+
+raspberry pi
+micro sd card - with latest os
+wire - insulated small gauge
+temp sensors - dht22/am2302, dht11, ds18b20
+resistors - 5k-10k-ohms
+5vdc operation relays rated at 10amp 250 vac
+wire - insulated 12 gauge 
+waterproof housing
+usb-c power supply
