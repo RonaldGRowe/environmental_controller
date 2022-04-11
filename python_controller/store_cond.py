@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 
-from environmentconditions import get_environment
+from get_environ import get_environment
 import mariadb
 from pigpio_dht import DHT22
 import datetime
+from decouple import config
 
-conn = mariadb.connect(
-    user = 'user',
-    password = 'password',
-    host = 'localhost',
-    database = 'temperaturehumidityreadings')
+try:
+    conn = mariadb.connect(
+              user = config('user', default=''),
+              password = config('password', default=''),
+              host = config('host', default=''),
+              database = config('database', default='')
+    )
+except mariadb.Error as e:
+    print(f"Error connecting to MariaDb: {e}")
 
-
-
-def store_envrionment(conn):
+def store_environment(conn):
     cur = conn.cursor()
     tempf, humidity = get_environment()
     for i, temp in enumerate(tempf):
