@@ -10,11 +10,11 @@
 <?php
 
 $data = array("your in");
-$result = shell_exec('python3 "/mysite/environmental_controller/web_controller/web_live_condition.py" ' . escapeshellarg(json_encode($data)));
+$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
 $reading = json_decode($result, true);
 
 
-$relaystatus = shell_exec('python3 "/mysite/environmental_controller/web_controller/web_relay_status.py" ' . escapeshellarg(json_encode($data)));
+$relaystatus = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_relay_status.py');
 $resultData = json_decode($relaystatus, true);
 ?>
 
@@ -96,19 +96,19 @@ $resultData = json_decode($relaystatus, true);
                 <h2>Right Side</h2>
                 <div class="air">
                         <h5>Air Temp</h5>
-                        <p><?php echo $reading[2];?>&deg;F</p>
+                        <p><?php echo $reading["secairtemp"];?>&deg;F</p>
                 </div>
                 <div class="lights">
 	 <h5>Lights</h5>
-                         <input type="button" onclick="location='cycleseclight.php';" value='<?php echo $resultData[1];?>'>
+                         <input type="button" onclick="location='cycleseclight.php';" value='<?php echo $resultData["seclight"];?>'>
                 </div>
                 <div class="humidity">
                         <h5>Humidity</h5>
-                        <p><?php echo $reading[3];?>%</p>
+                        <p><?php echo $reading["sechumidity"];?>%</p>
                 </div>
                 <div class="water">
                         <h5>Water Temp</h5>
-                        <p><?php echo $reading[5];?>&deg;F</p>
+                        <p><?php echo $reading["secwatertemp"];?>&deg;F</p>
                 </div>
                 <div id="chartRpH_div" class="ph">
                 </div>
@@ -117,30 +117,30 @@ $resultData = json_decode($relaystatus, true);
 		<h2>Left Side</h2>
 		<div class="air">
 			<h5>Air Temp</h5>
-			<p><?php echo $reading[0];?>&deg;F</p>
+			<p><?php echo $reading["airtemp"];?>&deg;F</p>
 		</div>
 		<div class="lights">
 			<h5>Lights</h5>
-			<input type="button" onclick="location='cyclelight.php';" value='<?php echo $resultData[2];?>'>
+			<input type="button" onclick="location='cyclelight.php';" value='<?php echo $resultData["light"];?>'>
 		</div>
                 <div class="humidity">
 			<h5>Humidity</h5>
-			<p><?php echo $reading[1];?>%</p>
+			<p><?php echo $reading["humidity"];?>%</p>
 		</div>
 		<div class="water">
 			<h5>Water Temp</h5>
-			<p><?php echo $reading[4];?>&deg;F</p>
+			<p><?php echo $reading["watertemp"];?>&deg;F</p>
 		</div>
 		<div id="chartLpH_div" class="ph">
 		</div>
 	</section>
         <div class="fan">
                 <h2>Fan</h2>
-                <input type="button" onclick="location='cyclefan.php';" value='<?php echo $resultData[0];?>'>
+                <input type="button" onclick="location='cyclefan.php';" value='<?php echo $resultData["fan"];?>'>
                 <h2>RunDrip</h2>
-                <input type="button" onclick="location='cycledrip.php';" value='<?php echo $resultData[3];?>'>
+                <input type="button" onclick="location='cycledrip.php';" value='<?php echo $resultData["drip"];?>'>
                 <h2>RunDrip2</h2>
-                <input type="button" onclick="location='cyclesecdrip.php';" value='<?php echo $resultData[4];?>'>
+                <input type="button" onclick="location='cyclesecdrip.php';" value='<?php echo $resultData["secdrip"];?>'>
 
 
 		<h2>24Hr</h2>

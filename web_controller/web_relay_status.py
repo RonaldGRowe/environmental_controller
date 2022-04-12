@@ -27,4 +27,4 @@ for k, pin in relaypins.items():
 		relaystatus.setdefault(k, "OFF")
 
 #sends relaystatus to webpage
-json.dumps(relaystatus)
+print(json.dumps(relaystatus))
