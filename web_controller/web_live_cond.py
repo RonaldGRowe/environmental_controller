@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 import json
 
 #from get_environ import get_environment

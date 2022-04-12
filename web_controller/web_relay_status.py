@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
 import json
 import RPi.GPIO as GPIO
 

@@ -10,15 +10,7 @@
 
 
 <?php
-  $dberror="Failure";
-  echo "Hello";
-  $db=mysqli_connect("localhost","ronaldgrowe","ronjonjoe","temperaturehumidityreadings") or die ($dberror);
-  $result=mysqli_query("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100");
-  if(!$result){
-  echo "We are not in";
-}
-
-
+  
   while($row = mysqli_fetch_array($result)){
   $Dtemp[] = $row['temperature'];
   /*$Dtemp2[] = $row['temp2'];*/
