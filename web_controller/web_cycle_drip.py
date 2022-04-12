@@ -4,11 +4,7 @@ import sys
 import RPi.GPIO as GPIO
 import json
 
-try:
-    data = json.loads(sys.argv[1])
-except:
-    print("ERROR")
-    sys.exit(1)
+
 
 
 GPIO.setmode(GPIO.BCM)
