@@ -20,4 +20,4 @@ for pin in lightpins:
 
 result="done"
 
-json.dumps(result)
+print(json.dumps(result))

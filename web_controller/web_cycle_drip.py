@@ -22,4 +22,4 @@ for pin in drippins:
 
 result="done"
 
-json.dumps(result)
+print(json.dumps(result))
