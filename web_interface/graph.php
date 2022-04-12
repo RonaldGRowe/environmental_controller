@@ -11,13 +11,15 @@
 
 <?php
   $dberror="Failure";
+  echo "Hello";
+  $db=mysqli_connect("localhost","ronaldgrowe","ronjonjoe","temperaturehumidityreadings") or die ($dberror);
+  $result=mysqli_query("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100");
+  if(!$result){
+  echo "We are not in";
+}
 
-  $db=mysql_connect("localhost","user","password") or die ($dberror);
-  mysql_select_db('temperaturehumidityreadings',$db)or die($dberror);
-  $result=mysql_query("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100");
 
-
-  while($row = mysql_fetch_assoc($result)){
+  while($row = mysqli_fetch_array($result)){
   $Dtemp[] = $row['temperature'];
   /*$Dtemp2[] = $row['temp2'];*/
   $Dhumidity[] = $row['humidity'];
@@ -31,8 +33,8 @@
   $dated = $date['hour'] . $colon . $date['minute'] . $date['month'] . $slsh . $date['day'];
   $Ddtg[] = $dated;
 }
-  mysql_free_result($result);
-  mysql_close($db);
+  mysqli_free_result($result);
+  mysqli_close($db);
 
   for ($x = 0; $x < 100; $x++){
   $y = 99-$x;
@@ -44,7 +46,7 @@
  /* $h2oTemp2[$y] = $Dh2oTemp2[$x];*/
   $dtg[$y] = $Ddtg[$x];
 }
-
+echo $temp;
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +59,7 @@
   <script type="text/javascript">
 
   google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawLogScales);
+googlehttps://www.gstatic.com/charts/loader.js.charts.setOnLoadCallback(drawLogScales);
 
 function drawLogScales() {
       var data1 = new google.visualization.DataTable();
@@ -194,11 +196,13 @@ var options1 = {
         colors: ['#a52714', '#097138']
      };
 
-      var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
-      chart1.draw(data1, options1);
+//      var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
+//      chart1.draw(data1, options1);
     }
 </script>
+
 <!--
+/*
 google.charts.setOnLoadCallback(drawLogScales2);
 
 
@@ -337,10 +341,10 @@ var options = {
         height: 400,
         colors: ['#a52714', '#097138'],
       };
-
       var chart = new google.visualization.LineChart(document.getElementById('chart_divR'));
       chart.draw(data, options);
 }
+*/
 -->
 
 
@@ -349,7 +353,7 @@ var options = {
   <body>
 
    <div id="chart_div">
-	
+       <h1>Hello</h1>	
    </div>
 
    <div id="chart_divR">
