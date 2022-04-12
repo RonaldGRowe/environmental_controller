@@ -21,4 +21,4 @@ for pin in fanpins:
 
 result="done"
 
-json.dumps(result)
+print(json.dumps(result))
