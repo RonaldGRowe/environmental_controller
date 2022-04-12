@@ -1,9 +1,11 @@
 <?php
+/*
   session_start();
   if($_SESSION["logged"] != true){
     header("location: loginpage.html");
     exit;
 }
+*/
 ?>
 
 
@@ -35,11 +37,11 @@
   for ($x = 0; $x < 100; $x++){
   $y = 99-$x;
   $humidity[$y] = $Dhumidity[$x];
-  $humidity2[$y] = $Dhumidity2[$x];
+  /*$humidity2[$y] = $Dhumidity2[$x];*/
   $temp[$y] = $Dtemp[$x];
-  $temp2[$y] =$Dtemp2[$x];
-  $h2oTemp1[$y] = $Dh2oTemp1[$x];
-  $h2oTemp2[$y] = $Dh2oTemp2[$x];
+  /*$temp2[$y] =$Dtemp2[$x];*/
+  $h2oTemp1[$y] = $Dtemp[$x] - 5;
+ /* $h2oTemp2[$y] = $Dh2oTemp2[$x];*/
   $dtg[$y] = $Ddtg[$x];
 }
 
@@ -48,7 +50,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link href="graphformat.css" rel="stylesheet" type="text/css" />
+  <link href="styles/graphformat.css" rel="stylesheet" type="text/css" />
 
 
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -195,8 +197,8 @@ var options1 = {
       var chart1 = new google.visualization.LineChart(document.getElementById('chart_div'));
       chart1.draw(data1, options1);
     }
-
-
+</script>
+<!--
 google.charts.setOnLoadCallback(drawLogScales2);
 
 
@@ -339,10 +341,10 @@ var options = {
       var chart = new google.visualization.LineChart(document.getElementById('chart_divR'));
       chart.draw(data, options);
 }
+-->
 
 
 
-</script>
   </head>
   <body>
 
