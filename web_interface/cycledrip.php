@@ -9,7 +9,7 @@ exit();
 ?>
 <?php
  
-$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_cycle_drip.py" ' . escapeshellarg(json_encode($data)));
+$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_cycle_drip.py');
 
 $resultData = json_decode($result, true);
 

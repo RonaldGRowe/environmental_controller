@@ -3,7 +3,7 @@
 import RPi.GPIO as GPIO
 import json
 
-t
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
