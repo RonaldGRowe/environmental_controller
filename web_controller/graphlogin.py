@@ -17,10 +17,9 @@ except mariadb.Error as e:
 
 cur = conn.cursor()
 
-cur.execute(statement)
+cur.execute("SELECT * FROM TempData ORDER BY dtg DESC LIMIT 100")
 result = cur.fetchall()
 print(result)
 conn.commit()
-conn.close()
 
-print(json.dumps(relaystatus))
+print(json.dumps(result))
