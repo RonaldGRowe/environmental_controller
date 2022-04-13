@@ -2,6 +2,7 @@
 import mariadb
 import json
 from decouple import config
+from datetime import date
 
 try:
     conn = mariadb.connect(
@@ -13,13 +14,23 @@ try:
 except mariadb.Error as e:
     print(json.dumps(f"Error connecting to MariaDb: {e}"))
 
-
+def formatdate(date):
+    if date.date():
+        newdate = date
+        return f"{newdate.hour}:{newdate.min} {newdate.month}/{newdate.day}"
+    else:
+        return None
 
 cur = conn.cursor()
 
 cur.execute("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100")
-result = cur.fetchall()
-print(result)
-conn.commit()
+graphdata = []
+for date, temperature, humidity in cur:
+    templist = []
+    templist.append(formatdate(date))
+    templist.append(temperature)
+    templist.append(humidity)
+    graphdata.append(templist)
+conn.close()
 
-print(json.dumps(result))
+print(json.dumps(graphdata))
