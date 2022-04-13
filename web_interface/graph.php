@@ -10,7 +10,8 @@
 $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphlogin.py');
 
 $resultData = json_decode($result, true);
-?> 
+echo $resultData;
+?>
 
 <!DOCTYPE html>
 <html>
@@ -26,7 +27,7 @@ $resultData = json_decode($result, true);
 function drawEnvironment() {
       var data1 = new google.visualization.DataTable();
       data1.addColumn('string', 'Date');
-      data1.addColumn('number', 'Air Temperature');      
+      data1.addColumn('number', 'Air Temperature');
       data1.addColumn('number', 'Humidity');
 
       data1.addRows(<?php echo $resultData;?>);
@@ -65,7 +66,7 @@ var options1 = {
 
    <div id="chart_div">
    </div>
-
+   <p><?php echo $resultData;?></p>
    <div id="chart_divR">
 
    </div>
