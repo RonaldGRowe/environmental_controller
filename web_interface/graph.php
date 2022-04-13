@@ -6,10 +6,11 @@
     exit;
 }
 */
-$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphloginp.py');
+
+$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphlogin.py');
 
 $resultData = json_decode($result, true);
- 
+?> 
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +47,7 @@ var options1 = {
          1:{color: 'black'},
          2:{color: 'green'}
         },
-	title: 'Left Side',
+	title: 'Environment',
 	titleLocation: 'in',
         height: 400,
         colors: ['#a52714', '#097138']
