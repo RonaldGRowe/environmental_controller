@@ -9,13 +9,7 @@
 $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphloginp.py');
 
 $resultData = json_decode($result, true);
-  
-   $date = date_parse($row['dtg']);
-  $colon = ":";
-  $slsh = "/";
-  $dated = $date['hour'] . $colon . $date['minute'] . $date['month'] . $slsh . $date['day'];
-  $Ddtg[] = $dated;
-}
+ 
 
 <!DOCTYPE html>
 <html>
@@ -34,7 +28,7 @@ function drawEnvironment() {
       data1.addColumn('number', 'Air Temperature');      
       data1.addColumn('number', 'Humidity');
 
-      data1.addRows(<?php echo $humidity[99];?>);
+      data1.addRows(<?php echo $resultData;?>);
 
 var options1 = {
         hAxis: {
@@ -69,7 +63,6 @@ var options1 = {
   <body>
 
    <div id="chart_div">
-       <h1>Hello</h1>	
    </div>
 
    <div id="chart_divR">
