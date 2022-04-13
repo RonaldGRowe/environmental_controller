@@ -26,5 +26,4 @@ def store_environment(conn):
     conn.commit()
     conn.close()
 
-
 store_environment(conn)
