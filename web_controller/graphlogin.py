@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import mariadb
 import json
 from decouple import config
 
@@ -17,7 +17,7 @@ except mariadb.Error as e:
 
 cur = conn.cursor()
 
-cur.execute("SELECT * FROM TempData ORDER BY dtg DESC LIMIT 100")
+cur.execute("SELECT * FROM readings ORDER BY dtg DESC LIMIT 100")
 result = cur.fetchall()
 print(result)
 conn.commit()
