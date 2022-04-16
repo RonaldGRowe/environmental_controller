@@ -8,7 +8,7 @@ from decouple import config
 
 try:
     conn = mariadb.connect(
-              user = config('user', default=''),
+              user = config('writeuser', default=''),
               password = config('password', default=''),
               host = config('host', default=''),
               database = config('database', default='')
