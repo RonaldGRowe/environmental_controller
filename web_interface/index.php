@@ -32,12 +32,12 @@ $resultData = json_decode($relaystatus, true);
       Filename:         index.php
 
    -->
-	  <link href="styles/controllerstyle.css" rel="stylesheet" type="text/css" />
-      <meta charset="UTF-8" />
-      <title>Raspberry Pi Controller</title>
+  <link href="./styles/controllerstyle.css" rel="stylesheet" type="text/css" />
+  <meta charset="UTF-8" />
+  <title>Pi Controller</title>
 
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script type="text/javascript">
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript">
       google.load("visualization", "1", {packages:["gauge"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {

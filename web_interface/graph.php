@@ -7,10 +7,9 @@
 }
 */
 
-$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphlogin.py');
+$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphlogin1.py');
 
 $resultData = json_decode($result, true);
-echo $resultData;
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +29,9 @@ function drawEnvironment() {
       data1.addColumn('number', 'Air Temperature');
       data1.addColumn('number', 'Humidity');
 
-      data1.addRows(<?php echo $resultData;?>);
+      data1.addRows(
+        <?php echo $result; ?>
+)
 
 var options1 = {
         hAxis: {
@@ -66,7 +67,7 @@ var options1 = {
 
    <div id="chart_div">
    </div>
-   <p><?php echo $resultData;?></p>
+   <p></p>
    <div id="chart_divR">
 
    </div>

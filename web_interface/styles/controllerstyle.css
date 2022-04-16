@@ -20,10 +20,10 @@
 
 *{
 	background: transparent;
-	background-color: blue;
+	background-color: gray;
 }
 body{
-	background-color: blue;
+	background-color: gray;
 }
 header{
 	margin-bottom: -100px;
