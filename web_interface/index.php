@@ -1,7 +1,7 @@
 
   <?php/*
   session_start();
-  if($_SESSION["logged"] != true){ 
+  if($_SESSION["logged"] != true){
     header("location: loginpage.html");
     exit;
 }
@@ -78,6 +78,46 @@ $resultData = json_decode($relaystatus, true);
 
       }
     </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#light").click(function(){
+        $("#light").load("cyclelight.php");
+      });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+      $("#seclight").click(function(){
+        $("#seclight").load("cycleseclight.php");
+      });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+      $("#drip").click(function(){
+        $("#drip").load("cycledrip.php");
+      });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+      $("#secdrip").click(function(){
+        $("#secdrip").load("cyclesecdrip.php");
+      });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+      $("#fan").click(function(){
+        $("#fan").load("cyclefan.php");
+      });
+    });
+</script>
+
+
+
+
 </head>
 
 <body>
@@ -93,8 +133,8 @@ $resultData = json_decode($relaystatus, true);
                         <p><?php echo $reading["secairtemp"];?>&deg;F</p>
                 </div>
                 <div class="lights">
-	 <h5>Lights</h5>
-                         <input type="button" onclick="location='cycleseclight.php';" value="<?php echo $resultData['seclight'];?>">
+	                 <h5>Lights</h5>
+                         <button id="seclight"><?php echo $resultData["seclight"];?></button>
                 </div>
                 <div class="humidity">
                         <h5>Humidity</h5>
@@ -115,7 +155,7 @@ $resultData = json_decode($relaystatus, true);
 		</div>
 		<div class="lights">
 			<h5>Lights</h5>
-			<input type="button" onclick="location='cyclelight.php';" value='<?php echo $resultData["light"];?>'>
+                        <button id="light"><?php echo $resultData["light"];?></button>
 		</div>
                 <div class="humidity">
 			<h5>Humidity</h5>
@@ -130,15 +170,14 @@ $resultData = json_decode($relaystatus, true);
 	</section>
         <div class="fan">
                 <h2>Fan</h2>
-                <input type="button" onclick="location='cyclefan.php';" value="<?php echo $resultData['fan'];?>">
+                <button id="fan"><?php echo $resultData["fan"];?></button>
                 <h2>RunDrip</h2>
-                <input type="button" onclick="location='cycledrip.php';" value='<?php echo $resultData["drip"];?>'>
+                <button id="drip"><?php echo $resultData["drip"];?></button>
                 <h2>RunDrip2</h2>
-                <input type="button" onclick="location='cyclesecdrip.php';" value='<?php echo $resultData["secdrip"];?>'>
+                <button id="secdrip"><?php echo $resultData["secdrip"];?></button>
 
-
-		<h2>24Hr</h2>
-                <input type="button" onclick="location='graph.php';" value='Graph'>
+		<h2>24Hr Data</h2>
+                <button onclick="window.open('graph.php', '_blank')">Graph</button>
         </div>
 
 </body>

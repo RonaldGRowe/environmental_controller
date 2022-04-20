@@ -60,7 +60,7 @@ var options1 = {
     }
 </script>
 
-
+  <title>Environmental Conditions Graphed</title>
 
   </head>
   <body>

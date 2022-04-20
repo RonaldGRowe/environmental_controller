@@ -13,9 +13,12 @@ for pin in lightpins:
     GPIO.setup(pin,GPIO.OUT)
     status = GPIO.input(pin)
     if status:
-            GPIO.output(pin,GPIO.LOW)#turn on fan
-    else: GPIO.output(pin,GPIO.HIGH)
+        GPIO.output(pin,GPIO.LOW)#turn on drip
+        newstatus = "ON"
+    else:
+        GPIO.output(pin,GPIO.HIGH)
+        newstatus = "OFF"
 
-result="done"
+result=["done", newstatus]
 
 print(json.dumps(result))

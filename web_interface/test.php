@@ -1,5 +1,4 @@
 <?php
-echo "1";
 
 $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/graphlogin.py');
 if($result){

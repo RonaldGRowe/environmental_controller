@@ -13,8 +13,8 @@ exit();
 $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_cycle_light.py');
 $resultData = json_decode($result, true);
 
-if($resultData == "done"){
-header("location: index.php");
+if($resultData[0] == "done"){
+echo $resultData[1];
 }
 ?>
 
