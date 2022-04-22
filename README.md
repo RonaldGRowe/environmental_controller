@@ -1,7 +1,7 @@
 Environmental Controller
 ========================
 
-![Website based Interface](https://github.com/RonaldGRowe/environmental_controller/blob/master/Images/envirocontroller2.png)
+![Website based Interface](https://github.com/RonaldGRowe/environmental_controller/blob/master/images/envirocontroller2.png)
 
 Collection of programs to utilize a Raspberry Pi to control and monitor an agricultural environment.
 
