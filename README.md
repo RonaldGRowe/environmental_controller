@@ -31,3 +31,7 @@ This could be used in any setting that needs environmental controls and tracking
 - Should have utilized a version control system like Git
 - Did not make the website accessible through WAN only LAN
 - Did not continue to upgrade features like automatically creating error message emails or reports
+
+# Fixed
+- Using version control to reimplement and update controller
+- Using Nginx on Google Cloud Platform VM instance to reverse_proxy ssh tunnel to access from WAN
