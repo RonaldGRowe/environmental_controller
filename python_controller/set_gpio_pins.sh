@@ -1,4 +1,4 @@
-cat /usr/local/bin/set_gpio_pins.sh
+#cat /usr/local/bin/set_gpio_pins.sh
 
 
 #!/bin/bash
