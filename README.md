@@ -1,7 +1,7 @@
-Environmental Controller
+Environmental Controller [Check it out live!](http://35.202.39.164/)
 ========================
 
-![Website based Interface](https://github.com/RonaldGRowe/environmental_controller/blob/master/Images/envirocontroller.png)
+![Website based Interface](https://github.com/RonaldGRowe/environmental_controller/blob/master/images/envirocontroller2.png)
 
 Collection of programs to utilize a Raspberry Pi to control and monitor an agricultural environment.
 
@@ -31,3 +31,7 @@ This could be used in any setting that needs environmental controls and tracking
 - Should have utilized a version control system like Git
 - Did not make the website accessible through WAN only LAN
 - Did not continue to upgrade features like automatically creating error message emails or reports
+
+# Fixed
+- Using version control to reimplement and update controller
+- Using Nginx on Google Cloud Platform VM instance to reverse_proxy ssh tunnel to access from WAN
