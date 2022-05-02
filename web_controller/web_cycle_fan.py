@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 
-import sys
 import RPi.GPIO as GPIO
 import json
-import camera
+from camera import still_capture_jpg
 
 fanpins = [18]
 
@@ -26,4 +25,4 @@ result=["done", newstatus]
 
 print(json.dumps(result))
 
-camera()
+still_capture_jpg()
