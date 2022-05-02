@@ -2,7 +2,7 @@
 
 import RPi.GPIO as GPIO
 import json
-
+import camera
 
 
 
@@ -25,3 +25,5 @@ for pin in drippins:
 result=["done", newstatus]
 
 print(json.dumps(result))
+
+camera()

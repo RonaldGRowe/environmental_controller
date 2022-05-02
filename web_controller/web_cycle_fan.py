@@ -3,7 +3,7 @@
 import sys
 import RPi.GPIO as GPIO
 import json
-
+import camera
 
 fanpins = [18]
 
@@ -23,4 +23,7 @@ for pin in fanpins:
 
 result=["done", newstatus]
 
+
 print(json.dumps(result))
+
+camera()

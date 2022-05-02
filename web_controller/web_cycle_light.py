@@ -2,7 +2,7 @@
 
 import RPi.GPIO as GPIO
 import json
-
+import camera
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -22,3 +22,5 @@ for pin in lightpins:
 result=["done", newstatus]
 
 print(json.dumps(result))
+
+camera()

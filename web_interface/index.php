@@ -7,7 +7,7 @@ $resultData = json_decode($relaystatus, true);
 $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
 
 if(! $result){
-    echo "Sensor Traffic is Heavy Today, please wait a few seconds.";
+    echo "Sorry you had to wait, Sensor Traffic is Heavy Today";
     sleep(3);
     $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
 }
