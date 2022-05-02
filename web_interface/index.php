@@ -129,7 +129,7 @@ function update() {
                 </div>
                 <div class="lights">
 	                 <h5>Lights</h5>
-                         <button id="seclight"><?php echo $resultData["seclight"];?></button>
+                         <button id="seclight" onclick="setTimeout(update, 3500)"><?php echo $resultData["seclight"];?></button>
                 </div>
                 <div class="humidity">
                         <h5>Humidity</h5>
@@ -150,7 +150,7 @@ function update() {
 		</div>
 		<div class="lights">
 			<h5>Lights</h5>
-                        <button id="light"><?php echo $resultData["light"];?></button>
+                        <button id="light" onclick="setTimeout(update, 3500)"><?php echo $resultData["light"];?></button>
 		</div>
                 <div class="humidity">
 			<h5>Humidity</h5>
@@ -165,11 +165,11 @@ function update() {
 	</section>
         <div class="fan">
                 <h2>Fan</h2>
-                <button id="fan"><?php echo $resultData["fan"];?></button>
+                <button id="fan" onclick="setTimeout(update, 3500)"><?php echo $resultData["fan"];?></button>
                 <h2>RunDrip</h2>
                 <button id="drip" onclick="setTimeout(update, 3500)"><?php echo $resultData["drip"];?></button>
                 <h2>RunDrip2</h2>
-                <button id="secdrip"><?php echo $resultData["secdrip"];?></button>
+                <button id="secdrip" onclick="setTimeout(update, 3500)"><?php echo $resultData["secdrip"];?></button>
 
 		<h2>24Hr Data</h2>
                 <button onclick="window.open('graph.php', '_blank')">Graph</button>
