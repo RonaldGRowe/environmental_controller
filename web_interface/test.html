@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html>
+<head>
+<script>
+function update() {
+  var timestamp = new Date().getTime();
+  var src = 'pic1.jpg';
+  var newsrc = src + '?_=' + timestamp;
+  document.getElementById("pic1").src = newsrc;
+  setTimeout(update, 5000);
+}
+setTimeout(update,5000);
+</script>
+</head>
+
 <body>
-  <img src="pic2.jpg" alt="pic2" width="600" height="400">
-  <img src="pic3.jpg" alt="pic3" width="600" height="400">
-  <br>
-  <img src="pic4.jpg" alt="pic4" width="600" height="400">
-  <img src="pic5.jpg" alt="pic5" width="600" height="400">
+  <img src="pic1.jpg" id="pic1" alt="pic1" width="600" height="400">
 </body>
 </html>

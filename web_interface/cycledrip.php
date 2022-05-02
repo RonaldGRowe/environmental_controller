@@ -17,6 +17,6 @@ if($resultData[0] == "done"){
 echo $resultData[1];
 }
 
-exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/camera.py');
+echo shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/camera.py');
 ?>
 

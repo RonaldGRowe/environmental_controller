@@ -76,24 +76,40 @@ $reading = json_decode($result, true);
     </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+
+
 <script>
+function update() {
+  var timestamp = new Date().getTime();
+  var src = 'pic1.jpg';
+  var newsrc = src + '?_=' + timestamp;
+  document.getElementById("pic1").src = newsrc;
+}
+
+
     $(document).ready(function(){
       $("#light").click(function(){
         $("#light").load("cyclelight.php");
       });
+
       $("#seclight").click(function(){
         $("#seclight").load("cycleseclight.php");
       });
+
       $("#drip").click(function(){
         $("#drip").load("cycledrip.php");
       });
+
       $("#secdrip").click(function(){
         $("#secdrip").load("cyclesecdrip.php");
       });
+
       $("#fan").click(function(){
         $("#fan").load("cyclefan.php");
       });
+
     });
+
 </script>
 
 
@@ -151,14 +167,17 @@ $reading = json_decode($result, true);
                 <h2>Fan</h2>
                 <button id="fan"><?php echo $resultData["fan"];?></button>
                 <h2>RunDrip</h2>
-                <button id="drip"><?php echo $resultData["drip"];?></button>
+                <button id="drip" onclick="setTimeout(update, 3500)"><?php echo $resultData["drip"];?></button>
                 <h2>RunDrip2</h2>
                 <button id="secdrip"><?php echo $resultData["secdrip"];?></button>
 
 		<h2>24Hr Data</h2>
                 <button onclick="window.open('graph.php', '_blank')">Graph</button>
         </div>
-
+        <br>
+        <div id="picture">
+            <img src="pic1.jpg" id="pic1" alt="pic1">
+        </div>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
       Hydroponic Info
       Author: Ronald Rowe
       Date:   5/31/2015
-
+      Updated: 5/2/2022
       Filename:         controllerstyle.css
       
    -->
@@ -85,4 +85,14 @@ div.ph{
        display: flex;
        justify-content: center;
        align-items: center;
+}
+div.picture{
+       margin: auto;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}
+img{
+       margin: auto;
+       border: 3px solid black;
 }
