@@ -93,6 +93,7 @@ div.picture{
        align-items: center;
 }
 img{
+       display: block;
        margin: auto;
        border: 3px solid black;
 }
