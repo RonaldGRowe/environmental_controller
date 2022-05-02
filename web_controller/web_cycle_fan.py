@@ -2,7 +2,6 @@
 
 import RPi.GPIO as GPIO
 import json
-from camera import still_capture_jpg
 
 fanpins = [18]
 
@@ -25,4 +24,3 @@ result=["done", newstatus]
 
 print(json.dumps(result))
 
-still_capture_jpg()

@@ -2,7 +2,6 @@
 
 import RPi.GPIO as GPIO
 import json
-from camera import still_capture_jpg
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
@@ -23,4 +22,3 @@ result=["done", newstatus]
 
 print(json.dumps(result))
 
-still_capture_jpg()
