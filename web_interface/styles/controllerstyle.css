@@ -26,7 +26,8 @@ body{
 	background-color: lightblue;
 }
 header{
-	margin-bottom: -100px;
+        height: 50px;
+	margin: auto;
 	color: red;
 	font-size: 25px;
 	font-variant: small-caps;
@@ -39,7 +40,7 @@ aside{
 	text-align: center;
 	float: right;
 	width: 33%;
-	color: white;
+	color: black;
 	font-size: 25px;
 	font-variant: small-caps;
 }
@@ -48,24 +49,9 @@ section{
         text-align: center;
         width: 33%;
         float: left;
-        color: white;
+        color: black;
         font-size: 25px;
         font-variant: small-caps;
-}
-section div.ph{
-	float: right;
-	margin-right: 25%;
-}
-section div.tds{
-	margin-left: 25%;
-
-}
-aside div.ph{
-	float: right;
-	margin-right: 25%;
-}
-div.tds{
-	margin-left: 25%;
 }
 button,input
 {
@@ -89,9 +75,14 @@ button,input
 div.fan{
         width: 25%;
         text-align: center;
-        color: white;
+        color: black;
         font-size: 25px;
         font-variant: small-caps;
         margin-left: auto;
 	margin-right: auto;
 	margin-top:5%;}
+div.ph{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}

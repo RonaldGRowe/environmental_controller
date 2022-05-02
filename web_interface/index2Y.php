@@ -1,18 +1,10 @@
 <?php
+$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
+$reading = json_decode($result, true);
+
 
 $relaystatus = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_relay_status.py');
 $resultData = json_decode($relaystatus, true);
-
-
-$result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
-
-if(! $result){
-    echo "Sensor Traffic is Heavy Today, please wait a few seconds.";
-    sleep(3);
-    $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
-}
-$reading = json_decode($result, true);
-
 ?>
 
 <!DOCTYPE html>
@@ -72,29 +64,48 @@ $reading = json_decode($result, true);
 
         chartRpH.draw(dataRpH, optionsRpH);
 
+
+
+
       }
     </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <script>
     $(document).ready(function(){
       $("#light").click(function(){
         $("#light").load("cyclelight.php");
       });
+    });
+</script>
+<script>
+    $(document).ready(function(){
       $("#seclight").click(function(){
         $("#seclight").load("cycleseclight.php");
       });
+    });
+</script>
+<script>
+    $(document).ready(function(){
       $("#drip").click(function(){
         $("#drip").load("cycledrip.php");
       });
+    });
+</script>
+<script>
+    $(document).ready(function(){
       $("#secdrip").click(function(){
         $("#secdrip").load("cyclesecdrip.php");
       });
+    });
+</script>
+<script>
+    $(document).ready(function(){
       $("#fan").click(function(){
         $("#fan").load("cyclefan.php");
       });
     });
 </script>
+
 
 
 
@@ -162,3 +173,4 @@ $reading = json_decode($result, true);
 </body>
 
 </html>
+
