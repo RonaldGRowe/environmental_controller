@@ -31,6 +31,7 @@ $reading = json_decode($result, true);
       Filename:         index.php
 
    -->
+  <link rel="shortcut icon" href="enviroicon.png">
   <link href="styles/controllerstyle.css" rel="stylesheet" type="text/css" />
   <meta charset="UTF-8" />
   <title>Pi Controller</title>
