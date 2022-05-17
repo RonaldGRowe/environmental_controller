@@ -15,6 +15,7 @@ $resultData = json_decode($result, true);
 <!DOCTYPE html>
 <html>
   <head>
+  <link rel="shortcut icon" href="enviroicon.png">
   <link href="styles/graphformat.css" rel="stylesheet" type="text/css" />
 
 
