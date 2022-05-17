@@ -80,45 +80,35 @@ $reading = json_decode($result, true);
 
 
 <script>
-function scrollImage() {
-  location.href = "#picture";
-  setTimeout(update, 2000);
-}
-
 function update() {
   var timestamp = new Date().getTime();
   var src = 'pic1.jpg';
   var newsrc = src + '?_=' + timestamp;
   document.getElementById("pic1").src = newsrc;
 }
-/*
+
   async function getText(){
     let myObject = await fetch("cycleseclight.php");
-    let myText = await myObject.text();
+    let myText = await myObject.json();
     alert(myText);
     document.getElementById("seclight").innerHTML = myText;
-    setTimeout(update, 3500);
+
 }
-*/
+
     $(document).ready(function(){
       $("#light").click(function(){
-        $("#light").load("cyclelight.php"
-/*
-          function(response, status, http){
-            if(status == "success")
-              alert("Content loaded successfully");
-            if(status == "error")
-              alert("Error: " + http.status + ": " + http.statusText + " " +response);
-
-      }
-*/
-);
+        $("#light").load("cyclelight.php", function(response, status, http){
+          if(status == "success")
+            alert("Content loaded successfully");
+          if(status == "error")
+            alert("Error: " + http.status + ": " + http.statusText + " " +response);
+        });
       });
-
+/*
       $("#seclight").click(function(){
         $("#seclight").load("cycleseclight.php");
       });
-
+*/
       $("#drip").click(function(){
         $("#drip").load("cycledrip.php");
       });
@@ -152,7 +142,7 @@ function update() {
                 </div>
                 <div class="lights">
 	                 <h5>Lights</h5>
-                         <button id="seclight" onclick="setTimeout(scrollImage, 1500)"><?php echo $resultData["seclight"];?></button>
+                         <button id="seclight" onclick="getText()"><?php echo $resultData["seclight"];?></button>
                 </div>
                 <div class="humidity">
                         <h5>Humidity</h5>
@@ -173,7 +163,7 @@ function update() {
 		</div>
 		<div class="lights">
 			<h5>Lights</h5>
-                        <button id="light" onclick="setTimeout(scrollImage, 1500)"><?php echo $resultData["light"];?></button>
+                        <button id="light" onclick="setTimeout(update, 3500)"><?php echo $resultData["light"];?></button>
 		</div>
                 <div class="humidity">
 			<h5>Humidity</h5>
@@ -188,11 +178,12 @@ function update() {
 	</section>
         <div class="fan">
                 <h2>Fan</h2>
-                <button id="fan" onclick="setTimeout(scrollImage, 1500)"><?php echo $resultData["fan"];?></button>
+                <button id="fan" onclick="setTimeout(update, 3500)"><?php echo $resultData["fan"];?></button>
                 <h2>RunDrip</h2>
-                <button id="drip" onclick="setTimeout(scrollImage, 1500)"><?php echo $resultData["drip"];?></button>
+                <button id="drip" onclick="setTimeout(update, 3500)"><?php echo $resultData["drip"];?></button>
                 <h2>RunDrip2</h2>
-                <button id="secdrip" onclick="setTimeout(scrollImage, 1500)"><?php echo $resultData["secdrip"];?></button>
+                <button id="secdrip" onclick="setTimeout(update, 3500)"><?php echo $resultData["secdrip"];?></button>
+
 		<h2>24Hr Data</h2>
                 <button onclick="window.open('graph.php', '_blank')">Graph</button>
         </div>
