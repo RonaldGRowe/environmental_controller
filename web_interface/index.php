@@ -1,6 +1,6 @@
 
 <?php
-
+exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/camera.py');
 $relaystatus = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_relay_status.py');
 $resultData = json_decode($relaystatus, true);
 
@@ -13,6 +13,7 @@ if(! $result){
     $result = shell_exec('python3 /home/ronaldgrowe/mysite/environmental_controller/web_controller/web_live_cond.py');
 }
 $reading = json_decode($result, true);
+
 
 ?>
 
@@ -143,6 +144,7 @@ function update() {
 <br/>
 	<header>
 		<h1>Environmental Controller</h1>
+                <p>Click around and try it out!</p>
 	</header>
 	<br/>
 	<aside class="right">
@@ -199,7 +201,7 @@ function update() {
         </div>
         <br>
         <div id="picture">
-            <img src="pic1.jpg" id="pic1" alt="pic1">
+            <img src="pic1.jpg" id="pic1" alt="pic1" onerror="setTimeout(update, 1000)">
         </div>
 
 

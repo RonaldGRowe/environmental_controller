@@ -35,6 +35,10 @@ header{
 h1{
 	text-align:center;
 }
+header p{
+        text-align: center;
+        margin: auto;
+}
 aside{
 	margin-top: 1%;
 	text-align: center;
